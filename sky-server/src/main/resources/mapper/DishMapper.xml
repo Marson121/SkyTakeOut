@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sky.mapper.DishMapper">
+    <!--使用id生成，在创建完对象后把生成的id赋值到该对象属性id中-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into dish (name, category_id, price, image, description, create_time, update_time, create_user,update_user, status)
+        values (#{name}, #{categoryId}, #{price}, #{image}, #{description}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser}, #{status})
+    </insert>
 </mapper>

@@ -74,12 +74,12 @@ public class CategoryController {
 
 
     /**
-     * 根据类型查询
+     * 根据类型查询当前类型下有哪些分类
+     * 用于添加菜品/套餐时将选项显示在下拉框
      *
      * @param type
      * @return
      */
-    // todo 不知道这个是干啥的
     @GetMapping("/list")
     @ApiOperation("根据类型查询")
     public Result<List<Category>> getByType(Integer type) {
