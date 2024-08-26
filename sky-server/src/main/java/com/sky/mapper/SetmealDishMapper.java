@@ -12,7 +12,7 @@ import java.util.List;
 public interface SetmealDishMapper {
 
     /**
-     * 根据多个菜品id查询套餐
+     * 根据多个菜品id查询对应的套餐
      * @param ids
      * @return
      */

@@ -36,4 +36,11 @@ public interface DishFlavorMapper {
      */
     @Select("select * from dish_flavor where dish_id = #{dishId}")
     List<DishFlavor> getByDishId(Long dishId);
+
+
+    /**
+     * 根据dish_ids批量删除口味数据
+     * @param dishIds
+     */
+    void deleteByDishIds(List<Long> dishIds);
 }

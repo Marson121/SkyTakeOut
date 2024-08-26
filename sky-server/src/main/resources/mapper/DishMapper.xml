@@ -23,6 +23,14 @@
         </set>
         where id = #{id}
     </update>
+    <delete id="deleteByIds">
+        delete from dish where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <!--d.*表示查询dish表中所有内容，c.name表示查询category表中的分类名称，两者加起来共同构成DishVO-->
+    <!--设置c.name别名categoryName，这样mybatis可以封装对象-->
     <select id="pageQuery" resultType="com.sky.vo.DishVO">
         select d.*, c.name as categoryName from dish d left outer join category c on d.category_id = c.id
         <where>
