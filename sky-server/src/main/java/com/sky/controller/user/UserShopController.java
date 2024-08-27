@@ -30,7 +30,11 @@ public class UserShopController {
     @ApiOperation("查看店铺状态")
     public Result<Integer> getStatus() {
         Integer status = shopService.getShopService();
-        log.info("获取到店铺的营业状态为：{}", status == 1 ? "营业中" : "打烊中");
+        if (status != null) {
+            log.info("获取到店铺的营业状态为：{}", status == 1 ? "营业中" : "打烊中");
+        } else {
+            log.info("未获取到店铺的营业状态");
+        }
         return Result.success(status);
     }
 }
