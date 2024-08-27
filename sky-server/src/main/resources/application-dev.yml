@@ -11,4 +11,8 @@ sky:
     access-key-id: LTAI5tEZrUfqtu5GugQ8NpbT
     access-key-secret: zVglX9BipTY5qj9nTSY9t8Dl1DTfCw
     bucket-name: sky-take-out-marson
-
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 0
