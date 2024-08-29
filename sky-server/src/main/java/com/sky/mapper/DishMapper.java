@@ -72,4 +72,12 @@ public interface DishMapper {
      * @param ids
      */
     void deleteByIds(List<Long> ids);
+
+    /**
+     * 条件查询菜品及其口味
+     * 条件：分类id 状态
+     * @param dish
+     * @return
+     */
+    List<Dish> list(Dish dish);
 }

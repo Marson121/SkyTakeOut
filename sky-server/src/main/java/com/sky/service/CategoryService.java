@@ -39,7 +39,7 @@ public interface CategoryService {
 
 
     /**
-     * 根据类型查询
+     * 根据类型（菜品/套餐）查询分类
      *
      * @param type
      * @return
@@ -61,4 +61,5 @@ public interface CategoryService {
      * @param id
      */
     void deleteById(Long id);
+
 }
