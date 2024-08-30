@@ -46,6 +46,8 @@
         </where>
         order by d.update_time desc
     </select>
+
+    <!--条件查询，条件封装在Dish对象中-->
     <select id="list" resultType="com.sky.entity.Dish">
         select *
         from dish
