@@ -28,7 +28,6 @@ public class UserSetmealController {
     private SetmealService setmealService;
 
 
-
     /**
      * 根据分类id查询套餐
      *
@@ -53,6 +52,7 @@ public class UserSetmealController {
      * @return
      */
     @GetMapping("/dish/{id}")
+    @ApiOperation("根据套餐id查询当前套餐下的菜品")
     public Result<List<DishItemVO>> dishItemList(@PathVariable Long id) {
         List<DishItemVO> list = setmealService.getDishItemById(id);
         return Result.success(list);

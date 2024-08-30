@@ -44,7 +44,7 @@ public class DishController {
         log.info("新增菜品：{}", dishDTO);
         dishService.saveWithFlavor(dishDTO);
 
-        // 清理缓存
+        // 当新增菜品时，只清理当前分类的缓存
         String key = "dish_" + dishDTO.getCategoryId();
         cleanCache(key);
 
@@ -79,7 +79,7 @@ public class DishController {
         log.info("批量删除菜品：{}", ids);
         dishService.deleteBatch(ids);
 
-        // 直接清理所有
+        // 当批量删除菜品时直接清理所有缓存
         cleanCache("dish_*");
 
         return Result.success();
@@ -99,7 +99,7 @@ public class DishController {
     public Result update(@RequestBody DishDTO dishDTO) {
         dishService.updateWithFlavor(dishDTO);
 
-        // 直接清理所有
+        // 当修改菜品时直接清理所有缓存
         cleanCache("dish_*");
 
         return Result.success();
@@ -116,6 +116,10 @@ public class DishController {
     @ApiOperation("修改菜品状态")
     public Result changeStatus(@PathVariable Integer status, Long id) {
         dishService.startOrStop(status, id);
+
+        // 当修改菜品状态时直接清理所有缓存
+        cleanCache("dish_*");
+
         return Result.success();
     }
 
